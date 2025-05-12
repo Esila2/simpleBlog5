@@ -5,7 +5,7 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author_name = serializers.StringRelatedField(read_only=True)
+    author_name = serializers.StringRelatedField(read_only=True, source='author')
     author = serializers.PrimaryKeyRelatedField(write_only=True, queryset=User.objects.all())
 
     class Meta:
