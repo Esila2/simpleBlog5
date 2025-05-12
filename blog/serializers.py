@@ -4,7 +4,8 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+    author_name = serializers.StringRelatedField(read_only=True)
+    author = serializers.PrimaryKeyRelatedField(write_only=True)
 
     class Meta:
         model = Post
